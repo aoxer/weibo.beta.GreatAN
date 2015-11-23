@@ -19,6 +19,7 @@
 #import "ANStatusCell.h"
 #import "ANStatusFrame.h"
 #import "ANHttpTool.h"
+#import "MJRefresh.h"
 
 @interface ANHomeViewController () <ANDropdownMenuDelegate>
 
@@ -86,9 +87,7 @@
 // 设置上拉刷新
 - (void)setupPullUpRefresh
 {
-    ANLoadMoreFooter *footer = [ANLoadMoreFooter footer];
-    footer.hidden = YES;
-    self.tableView.tableFooterView = footer;
+    [self.tableView addFooterWithTarget:self action:@selector(loadMoreStatus)];
     
 }
 
@@ -123,10 +122,10 @@
         [self.tableView reloadData];
         
         // 结束刷新, 隐藏footer
-        self.tableView.tableFooterView.hidden = YES;
+        [self.tableView footerEndRefreshing];
     } failure:^( NSError *error) {
         ANLog(@"error%@", error);
-        self.tableView.tableFooterView.hidden = YES;
+        [self.tableView footerEndRefreshing];
     }];
     
 }
@@ -134,15 +133,22 @@
 // 设置下拉刷新控件
 - (void)setupPullDownRefresh
 {
-    // 添加下拉刷新
-    UIRefreshControl *control = [[UIRefreshControl alloc] init];
-    // 只有通过手动下拉刷新,才会触发UIControlEventValueChange
-    [control addTarget:self action:@selector(loadNewStatus:) forControlEvents:UIControlEventValueChanged];
-    [self.tableView addSubview:control];
+    [self.tableView addHeaderWithTarget:self action:@selector(loadNewStatus)];
     
-    // 开始刷新
-    [control beginRefreshing];
-    [self loadNewStatus:control];
+    [self.tableView headerBeginRefreshing];
+    
+    //    // 添加下拉刷新
+//    UIRefreshControl *control = [[UIRefreshControl alloc] init];
+//    // 只有通过手动下拉刷新,才会触发UIControlEventValueChange
+//    [control addTarget:self action:@selector(loadNewStatus:) forControlEvents:UIControlEventValueChanged];
+//    [self.tableView addSubview:control];
+//    
+//    // 开始刷新
+//    [control beginRefreshing];
+//    [self loadNewStatus:control];
+
+
+
 }
 
 /**
@@ -162,7 +168,7 @@
 /**
  *  下拉加载新微博
  */
-- (void)loadNewStatus:(UIRefreshControl *)control
+- (void)loadNewStatus
 {
     
     // 拼接请求参数
@@ -194,7 +200,7 @@
         [self.tableView reloadData];
         
         // 停止菊花
-        [control endRefreshing];
+        [self.tableView headerEndRefreshing];
         
         // 显示更新微博数
         [self showStatusesCount:(int)newStatuses.count];
@@ -202,7 +208,7 @@
     } failure:^( NSError *error) {
         ANLog(@"error%@", error);
         // 停止菊花
-        [control endRefreshing];
+        [self.tableView headerEndRefreshing];
     }];
 }
 
@@ -386,21 +392,21 @@
     return cell;
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    // 如果tableView还没有数据就返回
-    if (self.statusFrames.count == 0 || self.tableView.tableFooterView.isHidden == NO) return;
-    
-    CGFloat offsetY = scrollView.contentOffset.y;
-    CGFloat judegOffsetY = scrollView.contentSize.height + scrollView.contentInset.bottom - scrollView.height - self.tableView.tableFooterView.height;
-    if (offsetY >=judegOffsetY) { // 最后一个cell完全进入视线
-        // 显示footerView
-        self.tableView.tableFooterView.hidden = NO;
-        
-        // 加载更多微博数据
-        [self loadMoreStatus];
-    }
-}
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+//{
+//    // 如果tableView还没有数据就返回
+//    if (self.statusFrames.count == 0 || self.tableView.tableFooterView.isHidden == NO) return;
+//    
+//    CGFloat offsetY = scrollView.contentOffset.y;
+//    CGFloat judegOffsetY = scrollView.contentSize.height + scrollView.contentInset.bottom - scrollView.height - self.tableView.tableFooterView.height;
+//    if (offsetY >=judegOffsetY) { // 最后一个cell完全进入视线
+//        // 显示footerView
+//        self.tableView.tableFooterView.hidden = NO;
+//        
+//        // 加载更多微博数据
+//        [self loadMoreStatus];
+//    }
+//}
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
