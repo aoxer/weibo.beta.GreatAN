@@ -10,7 +10,6 @@
 #import "ANDropdownMenu.h"
 #import "ANTitleMenuViewController.h"
 #import "ANAccountTool.h"
-#import "AFNetworking.h"
 #import "ANTitleButton.h"
 #import "UIImageView+WebCache.h"
 #import "ANUser.h"
@@ -19,6 +18,7 @@
 #import "ANLoadMoreFooter.h"
 #import "ANStatusCell.h"
 #import "ANStatusFrame.h"
+#import "ANHttpTool.h"
 
 @interface ANHomeViewController () <ANDropdownMenuDelegate>
 
@@ -60,17 +60,14 @@
 
 - (void)setupUnreadCount
 {
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     
-    // 拼接参数
+    // 1.拼接参数
     ANAccount *account = [ANAccountTool account];
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"access_token"] = account.access_token;
     parameters[@"uid"] = account.uid;
-    
-    [mgr GET:@"https://rm.api.weibo.com/2/remind/unread_count.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSString *status = [responseObject[@"status"] description];
+    [ANHttpTool get:@"https://rm.api.weibo.com/2/remind/unread_count.json" parameters:parameters success:^(id json) {
+        NSString *status = [json[@"status"] description];
         if ([status isEqualToString:@"0"]) { // 如果是0 得清空数字
             self.tabBarItem.badgeValue = nil;
             [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
@@ -80,11 +77,10 @@
             [UIApplication sharedApplication].applicationIconBadgeNumber = status.intValue;
             
         }
+    } failure:^(NSError *error) {
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         ANLog(@"请求失败%@", error);
     }];
-    
 }
 
 // 设置上拉刷新
@@ -99,8 +95,6 @@
 // 加载更多微博数据
 - (void)loadMoreStatus
 {
-    // 请求管理者
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     
     //拼接请求参数
     ANAccount *account = [ANAccountTool account];
@@ -115,9 +109,9 @@
     }
     
     // 发送请求
-    [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [ANHttpTool get:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(id json) {
         // 将微博字典数组转为微博模型数组
-        NSArray *newStatuses = [ANStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        NSArray *newStatuses = [ANStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
         
         // 将ANStatus数组转为ANStatusFrame数组
         NSArray *newFrames = [self statusFramesWithStatuses:newStatuses];
@@ -130,7 +124,7 @@
         
         // 结束刷新, 隐藏footer
         self.tableView.tableFooterView.hidden = YES;
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^( NSError *error) {
         ANLog(@"error%@", error);
         self.tableView.tableFooterView.hidden = YES;
     }];
@@ -170,8 +164,6 @@
  */
 - (void)loadNewStatus:(UIRefreshControl *)control
 {
-    // 获取管理者
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     
     // 拼接请求参数
     ANAccount *account = [ANAccountTool account];
@@ -183,10 +175,11 @@
     if (firstStatusFrame) {
         // 若指定此参数，则返回ID比since_id大的微博（即比since_id时间晚的微博），默认为0。
         parameter[@"since_id"] = firstStatusFrame.status.idstr;    }
+
     // 发送请求
-    [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameter success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [ANHttpTool get:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameter success:^(id json) {
         // 将微博字典转为微博模型
-        NSArray *newStatuses = [ANStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        NSArray *newStatuses = [ANStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
 //        ANLog(@"responseObject%@",responseObject);
         
         // 将ANStatus数组转为ANStatusFrame数组
@@ -206,7 +199,7 @@
         // 显示更新微博数
         [self showStatusesCount:(int)newStatuses.count];
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^( NSError *error) {
         ANLog(@"error%@", error);
         // 停止菊花
         [control endRefreshing];
@@ -275,9 +268,7 @@
      access_token	false	string	采用OAuth授权方式为必填参数，其他授权方式不需要此参数，OAuth授权后获得。
      uid	false	int64	需要查询的用户ID。
      */
- 
-    // 请求管理者
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+  
     
     // 拼接请求参数
     ANAccount *account = [ANAccountTool account];
@@ -285,14 +276,14 @@
     parameters[@"access_token"] = account.access_token;
     parameters[@"uid"] = account.uid;
     
-    [mgr GET:@"https://api.weibo.com/2/users/show.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [ANHttpTool get:@"https://api.weibo.com/2/users/show.json" parameters:parameters success:^(id json) {
 //        ANLog(@"success--%@", responseObject);
         
         
         // 设置名字
         UIButton *titleBtn = (UIButton *)self.navigationItem.titleView;
         
-        ANUser *user = [ANUser objectWithKeyValues:responseObject];
+        ANUser *user = [ANUser objectWithKeyValues:json];
 //        NSString *name = responseObject[@"name"];
         [titleBtn setTitle:user.name forState:UIControlStateNormal];
         // 存储昵称到沙盒中
@@ -300,7 +291,7 @@
         [ANAccountTool saveAccount:account];
         
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError *error) {
         ANLog(@"failure--%@", error);
     }];
     

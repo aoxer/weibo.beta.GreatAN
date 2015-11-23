@@ -6,10 +6,10 @@
 //  Copyright (c) 2015年 YongChaoAn. All rights reserved.
 //
 
-#import "ANOAuthViewController.h"
-#import "AFNetworking.h"
+#import "ANOAuthViewController.h" 
 #import "MBProgressHUD+MJ.h"
 #import "ANAccountTool.h"
+#import "ANHttpTool.h"
 
 @interface ANOAuthViewController ()<UIWebViewDelegate>
 
@@ -81,8 +81,6 @@
 
 - (void)accessTokenWithCode:(NSString *)code
 {
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-    mgr.responseSerializer = [AFJSONResponseSerializer serializer];
     /*
      URL：https://api.weibo.com/oauth2/access_token
      
@@ -100,23 +98,23 @@
     parameters[@"grant_type"] = @"authorization_code";
     parameters[@"redirect_uri"] = ANRedirectURL;
     parameters[@"code"] = code;
-    
-    [mgr POST:@"https://api.weibo.com/oauth2/access_token" parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
-        
-        ANLog(@"%@", responseObject);
+     
+    [ANHttpTool post:@"https://api.weibo.com/oauth2/access_token" parameters:parameters success:^(id json) {
+        ANLog(@"%@", json);
         // 将返回的账号数据存进沙盒
-        ANAccount *account = [ANAccount accountWithDict:responseObject];
+        ANAccount *account = [ANAccount accountWithDict:json];
         [ANAccountTool saveAccount:account];
         
         // 切换窗口的根控制器
         UIWindow *window = [UIApplication sharedApplication].keyWindow;
         [window switchRootViewController];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError *error) {
         ANLog(@"error--%@", error);
         
         [MBProgressHUD hideHUD];
     }];
+    
+    
 }
 
 @end

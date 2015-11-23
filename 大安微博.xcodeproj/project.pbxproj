@@ -42,6 +42,7 @@
 		007F7B531BE8D0F7009BA5C4 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 007F7B491BE8D0F7009BA5C4 /* AFURLResponseSerialization.m */; };
 		007F7B541BE8D0F7009BA5C4 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 007F7B4B1BE8D0F7009BA5C4 /* AFURLSessionManager.m */; };
 		007F7B571BE8D8B9009BA5C4 /* ANOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007F7B561BE8D8B9009BA5C4 /* ANOAuthViewController.m */; };
+		0095B7D71C031328004ABC12 /* ANHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0095B7D61C031328004ABC12 /* ANHttpTool.m */; };
 		009DA51B1BE3AEB9004AD987 /* ANTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 009DA51A1BE3AEB9004AD987 /* ANTabBar.m */; };
 		009DA57F1BE5B622004AD987 /* ANNewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009DA57E1BE5B622004AD987 /* ANNewFeatureViewController.m */; };
 		00A60E701BF4B20500866762 /* ANStatusToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A60E6F1BF4B20500866762 /* ANStatusToolbar.m */; };
@@ -210,6 +211,8 @@
 		007F7B4B1BE8D0F7009BA5C4 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		007F7B551BE8D8B9009BA5C4 /* ANOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANOAuthViewController.h; sourceTree = "<group>"; };
 		007F7B561BE8D8B9009BA5C4 /* ANOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANOAuthViewController.m; sourceTree = "<group>"; };
+		0095B7D51C031328004ABC12 /* ANHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANHttpTool.h; path = Tool/ANHttpTool.h; sourceTree = "<group>"; };
+		0095B7D61C031328004ABC12 /* ANHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANHttpTool.m; path = Tool/ANHttpTool.m; sourceTree = "<group>"; };
 		009DA5191BE3AEB9004AD987 /* ANTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTabBar.h; sourceTree = "<group>"; };
 		009DA51A1BE3AEB9004AD987 /* ANTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTabBar.m; sourceTree = "<group>"; };
 		009DA57D1BE5B622004AD987 /* ANNewFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANNewFeatureViewController.h; sourceTree = "<group>"; };
@@ -487,6 +490,15 @@
 				007F7B4B1BE8D0F7009BA5C4 /* AFURLSessionManager.m */,
 			);
 			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		0095B7D41C031302004ABC12 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				0095B7D51C031328004ABC12 /* ANHttpTool.h */,
+				0095B7D61C031328004ABC12 /* ANHttpTool.m */,
+			);
+			name = Tool;
 			sourceTree = "<group>";
 		};
 		009DA5761BE5AE0D004AD987 /* NewFeature */ = {
@@ -827,6 +839,7 @@
 		00D68A271BDF324500020E02 /* Main ( 主要) */ = {
 			isa = PBXGroup;
 			children = (
+				0095B7D41C031302004ABC12 /* Tool */,
 				007F7B371BE8D0F7009BA5C4 /* Lib */,
 				00D68A281BDF324500020E02 /* Category */,
 				00D68A2B1BDF324500020E02 /* Controller */,
@@ -1271,6 +1284,7 @@
 				00C9418D1BECA17800CFCE28 /* UIImage+WebP.m in Sources */,
 				00C941861BECA17800CFCE28 /* SDWebImageDownloader.m in Sources */,
 				00C9415B1BEB5CE200CFCE28 /* Foundation+Log.m in Sources */,
+				0095B7D71C031328004ABC12 /* ANHttpTool.m in Sources */,
 				00D1575D1BE9DDD0001239EE /* MBProgressHUD+MJ.m in Sources */,
 				00D68A661BDF324600020E02 /* ANProfileViewController.m in Sources */,
 				00CFF2B71BF1FCF6001F57B9 /* ANStatusCell.m in Sources */,
