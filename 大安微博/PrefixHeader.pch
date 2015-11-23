@@ -1,0 +1,54 @@
+//
+//  PrefixHeader.pch
+//  大安微博
+//
+//  Created by a on 15/10/25.
+//  Copyright (c) 2015年 YongChaoAn. All rights reserved.
+//
+
+#import "UIView+Extension.h"
+
+#import "UIBarButtonItem+Extension.h"
+#import "UIWindow+Extension.h"
+#import "NSString+Extension.h"
+#import "NSDate+Extension.h"
+#import "NSString+Emoji.h"
+#import "UITextView+Extension.h"
+#import "ANConst.h"
+
+#ifndef _____PrefixHeader_pch
+#define _____PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#ifdef DEBUG // 开发阶段
+#define ANLog(...) NSLog(__VA_ARGS__)
+#else // 发布阶段
+#define ANLog(...)
+#endif
+
+
+// RGB颜色
+#define ANColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+
+// 随机颜色
+#define ANRandomColor ANColor(arc4random_uniform(256),arc4random_uniform(256),arc4random_uniform(256))
+// 屏幕宽度
+#define ANScreenWidth [UIScreen mainScreen].bounds.size.width
+// 屏幕高度
+#define ANScreenHeight [UIScreen mainScreen].bounds.size.height
+// 通知中心
+#define ANNotificationCenter [NSNotificationCenter defaultCenter]
+
+ 
+
+// 表情们的最大列数
+#define ANEmotionsMaxCols 7
+// 表情们的最大行数
+#define ANEmotionsMaxRows 3
+// 每页的表情数
+#define ANEmotionPageSize ((ANEmotionsMaxCols * ANEmotionsMaxRows) - 1)
+
+
+#endif

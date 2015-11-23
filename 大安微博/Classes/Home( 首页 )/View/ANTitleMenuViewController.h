@@ -1,0 +1,13 @@
+//
+//  ANTitleMenuViewController.h
+//  大安微博
+//
+//  Created by a on 15/10/29.
+//  Copyright (c) 2015年 YongChaoAn. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface ANTitleMenuViewController : UITableViewController
+
+@end
