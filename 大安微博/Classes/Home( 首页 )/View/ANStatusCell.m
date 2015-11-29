@@ -240,21 +240,19 @@
     
     /** 正文 */
     self.contentLabel.frame = statusFrame.contentLabelF;
-    self.contentLabel.text = status.text;
+    self.contentLabel.attributedText = status.attributedText;
     
     
     /** 被转发的微博 */
     if (status.retweeted_status) {
         ANStatus *retweeted_status = status.retweeted_status;
-        ANUser *retweeted_status_user = retweeted_status.user;
         
         self.retweetView.hidden = NO;
         /** 被转发的微博整体 */
         self.retweetView.frame = statusFrame.retweetViewF;
         
         /** 被转发的微博正文 */
-        NSString *retweetContent = [NSString stringWithFormat:@"@%@ : %@", retweeted_status_user.name, retweeted_status.text];
-        self.retweetContentLabel.text = retweetContent;
+        self.retweetContentLabel.attributedText = status.retweetedAttributedText;
         self.retweetContentLabel.frame = statusFrame.retweetContentLabelF;
         
         /** 被转发的微博配图 */

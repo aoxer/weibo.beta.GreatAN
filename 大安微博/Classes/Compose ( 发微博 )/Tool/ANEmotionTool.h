@@ -11,4 +11,11 @@
 @interface ANEmotionTool : NSObject
 + (void)addRecentEmotion:(ANEmotions *)emotion;
 + (NSArray *)recentEmotions;
++ (NSArray *)defaultEmotions;
++ (NSArray *)lxhEmotions;
++ (NSArray *)emojiEmotions;
+/**
+ *  根据中文返回对应的表情
+ */
++ (ANEmotions *)emotionWithChs:(NSString *)chs;
 @end

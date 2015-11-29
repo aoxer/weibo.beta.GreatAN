@@ -51,10 +51,8 @@
 {
     if (!_defaultListView) {
         _defaultListView = [[ANEmotionListView alloc] init];
-        
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/default/info.plist" ofType:nil];
-        NSArray *dictArray = [NSArray arrayWithContentsOfFile:path];
-        self.defaultListView.emotions = [ANEmotions objectArrayWithKeyValuesArray:dictArray];
+
+        self.defaultListView.emotions = [ANEmotionTool defaultEmotions];
     }
     return _defaultListView;
 }
@@ -64,9 +62,7 @@
     if (!_emojiListView) {
         _emojiListView = [[ANEmotionListView alloc] init];
         
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/emoji/info.plist" ofType:nil];
-        NSArray *dictArray = [NSArray arrayWithContentsOfFile:path];
-        self.emojiListView.emotions = [ANEmotions objectArrayWithKeyValuesArray:dictArray];
+        self.emojiListView.emotions = [ANEmotionTool emojiEmotions];
     }
     return _emojiListView;
 }
@@ -78,7 +74,7 @@
         
         NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/lxh/info.plist" ofType:nil];
         NSArray *dictArray = [NSArray arrayWithContentsOfFile:path];
-        self.lxhListView.emotions = [ANEmotions objectArrayWithKeyValuesArray:dictArray];
+        self.lxhListView.emotions = [ANEmotionTool lxhEmotions];
     }
     return _lxhListView;
 }
