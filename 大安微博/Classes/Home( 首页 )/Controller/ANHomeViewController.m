@@ -34,7 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.backgroundColor = ANColor(211, 211, 211);
+    self.tableView.backgroundColor = ANColor(211, 211, 211, 1);
     
     // 设置footer高度
     self.tableView.tableFooterView.height = 44;
@@ -392,22 +392,10 @@
     return cell;
 }
 
-//- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-//{
-//    // 如果tableView还没有数据就返回
-//    if (self.statusFrames.count == 0 || self.tableView.tableFooterView.isHidden == NO) return;
-//    
-//    CGFloat offsetY = scrollView.contentOffset.y;
-//    CGFloat judegOffsetY = scrollView.contentSize.height + scrollView.contentInset.bottom - scrollView.height - self.tableView.tableFooterView.height;
-//    if (offsetY >=judegOffsetY) { // 最后一个cell完全进入视线
-//        // 显示footerView
-//        self.tableView.tableFooterView.hidden = NO;
-//        
-//        // 加载更多微博数据
-//        [self loadMoreStatus];
-//    }
-//}
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ANLog(@"didSelectRowAtIndexPath--%zd", indexPath.row);
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

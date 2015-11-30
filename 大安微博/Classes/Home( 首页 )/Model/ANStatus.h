@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 @class ANUser;
 @interface ANStatus : NSObject
-
 /** idstr	string	字符串型的微博ID */
 @property (nonatomic, copy) NSString *idstr;
 

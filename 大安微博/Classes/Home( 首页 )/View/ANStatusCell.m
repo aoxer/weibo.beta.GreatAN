@@ -15,6 +15,7 @@
 #import "ANStatusToolbar.h"
 #import "ANStatusPhotosView.h"
 #import "ANIconView.h"
+#import "ANStatusTextView.h"
 @interface ANStatusCell ()
 /* 原创微博 */
 /** 原创微博整体 */
@@ -32,12 +33,12 @@
 /** 来自 */
 @property (weak, nonatomic) UILabel *sourceLabel;
 /** 正文 */
-@property (weak, nonatomic) UILabel *contentLabel;
+@property (weak, nonatomic) ANStatusTextView *contentLabel;
 
 /** 转发微博整体 */
 @property (weak, nonatomic) UIView *retweetView;
 /** 转发微博正文 + 昵称 */
-@property (weak, nonatomic) UILabel *retweetContentLabel;
+@property (weak, nonatomic) ANStatusTextView *retweetContentLabel;
 /** 转发配图 */
 @property (weak, nonatomic) ANStatusPhotosView *retweetPhotosView;
 
@@ -108,13 +109,12 @@
 {
     /** 转发微博整体 */
     UIView *retweetView = [[UIView alloc] init];
-    retweetView.backgroundColor = ANColor(240, 240, 240);
+    retweetView.backgroundColor = ANColor(240, 240, 240, 1);
     [self.contentView addSubview:retweetView];
     self.retweetView = retweetView;
     
     /** 昵称 +正文 */
-    UILabel *retweetContentLabel = [[UILabel alloc] init];
-    retweetContentLabel.numberOfLines = 0;
+    ANStatusTextView *retweetContentLabel = [[ANStatusTextView alloc] init];
     retweetContentLabel.font = ANStatusCellRetweetContentFont;
     [retweetView addSubview:retweetContentLabel];
     self.retweetContentLabel = retweetContentLabel;
@@ -171,9 +171,8 @@
     self.sourceLabel = sourceLabel;
     
     /** 正文 */
-    UILabel *contentLabel = [[UILabel alloc] init];
+    ANStatusTextView *contentLabel = [[ANStatusTextView alloc] init];
     contentLabel.font = ANStatusCellContentFont;
-    contentLabel.numberOfLines = 0;
     [originalView addSubview:contentLabel];
     self.contentLabel = contentLabel;
 }

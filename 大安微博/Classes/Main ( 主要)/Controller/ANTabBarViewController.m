@@ -63,11 +63,11 @@
     childVc.title = title;
     // 设置文字样式
     NSMutableDictionary *selectedTextAttrs = [NSMutableDictionary dictionary];
-    selectedTextAttrs[NSForegroundColorAttributeName] = ANColor(255, 111, 0);
+    selectedTextAttrs[NSForegroundColorAttributeName] = ANColor(255, 111, 0, 1);
     [childVc.tabBarItem setTitleTextAttributes:selectedTextAttrs forState:UIControlStateSelected];
     // 设置选中文字样式
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
-    textAttrs[NSForegroundColorAttributeName] = ANColor(123, 123, 123);
+    textAttrs[NSForegroundColorAttributeName] = ANColor(123, 123, 123, 1);
     [childVc.tabBarItem setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
     // 设置图片和图片保持原样不被渲染
     childVc.tabBarItem.image = [UIImage imageNamed:imageName];

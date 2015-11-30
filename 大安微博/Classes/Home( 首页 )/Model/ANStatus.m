@@ -14,6 +14,7 @@
 #import "ANPart.h"
 #import "ANEmotionTool.h"
 #import "ANEmotions.h"
+#import "ANSpecial.h"
 
 @implementation ANStatus
 
@@ -31,6 +32,7 @@
     // #话题#的规则
     NSString *topicPattern = @"#[0-9a-zA-Z\\u4e00-\\u9fa5]+#";
     // url链接的规则
+//    NSString *urlPattern = @" ((http|https|ftp|ftps):\\/\\/)?([a-zA-Z0-9-]+\\.){1,5}(com|cn|net|org|hk|tw)((\\/(\\w|-)+(\\.([a-zA-Z]+))?)+)?(\\/)?(\\??([\\.%:a-zA-Z0-9_-]+=[#\\.%:a-zA-Z0-9_-]+(&amp;)?)+)?";
     NSString *urlPattern = @"\\b(([\\w-]+://?|www[.])[^\\s()<>]+(?:\\([\\w\\d]+\\)|([^[:punct:]\\s]|/)))";
     NSString *pattern = [NSString stringWithFormat:@"%@|%@|%@|%@", emotionPattern, atPattern, topicPattern, urlPattern];
     
@@ -79,6 +81,7 @@
 //    ANLog(@"%@", parts);
     
     UIFont *font = [UIFont systemFontOfSize:15];
+    NSMutableArray *specials = [NSMutableArray array];
     // 按顺序拼接每一段文字
     for (ANPart *part in parts) {
         
@@ -97,6 +100,14 @@
             }
         } else if (part.isSpecial){ // 非表情的特殊文字
             substr = [[NSAttributedString alloc] initWithString:part.text attributes:@{NSForegroundColorAttributeName : [UIColor redColor]}];
+            
+            ANSpecial *s = [[ANSpecial alloc] init];
+            s.text = part.text;
+            NSInteger loc = attributedText.length;
+            NSInteger len = part.text.length;
+            s.range = NSMakeRange(loc, len);
+            
+            [specials addObject:s];
         } else { // 非特殊文字
             substr = [[NSAttributedString alloc] initWithString:part.text];
         }
@@ -108,6 +119,8 @@
  
 #pragma warning attributedText 一定要设置字体 否则会显示不准确
     [attributedText addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:15] range:(NSRange){0, attributedText.length}];
+    
+    [attributedText addAttribute:@"specials" value:specials range:NSMakeRange(0, 1)];
     
     return attributedText;
 }

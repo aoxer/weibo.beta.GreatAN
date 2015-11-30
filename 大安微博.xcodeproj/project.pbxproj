@@ -33,6 +33,7 @@
 		005FDE3C1BE0AD4C00C3B611 /* ANSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 005FDE3B1BE0AD4C00C3B611 /* ANSearchBar.m */; };
 		005FDE3F1BE1CA0000C3B611 /* ANDropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 005FDE3E1BE1CA0000C3B611 /* ANDropdownMenu.m */; };
 		005FDE451BE1FA2400C3B611 /* ANTitleMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 005FDE441BE1FA2400C3B611 /* ANTitleMenuViewController.m */; };
+		006043CC1C0C101E00316536 /* ANSpecial.m in Sources */ = {isa = PBXBuildFile; fileRef = 006043CB1C0C101E00316536 /* ANSpecial.m */; };
 		006E81581BFEC93B00905B93 /* ANEmotions.m in Sources */ = {isa = PBXBuildFile; fileRef = 006E81571BFEC93B00905B93 /* ANEmotions.m */; };
 		006E815A1BFEC9A100905B93 /* EmotionIcons in Resources */ = {isa = PBXBuildFile; fileRef = 006E81591BFEC9A100905B93 /* EmotionIcons */; };
 		007F7B4C1BE8D0F7009BA5C4 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 007F7B3A1BE8D0F7009BA5C4 /* AFHTTPRequestOperation.m */; };
@@ -66,6 +67,7 @@
 		00B9E83E1C00572000AC454F /* UITextView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B9E83D1C00572000AC454F /* UITextView+Extension.m */; };
 		00B9E8411C015E9400AC454F /* ANEmotionAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B9E8401C015E9400AC454F /* ANEmotionAttachment.m */; };
 		00B9E8441C01B60000AC454F /* ANEmotionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B9E8431C01B60000AC454F /* ANEmotionTool.m */; };
+		00C74F071C0B3F9F00B5DEE4 /* ANStatusTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C74F061C0B3F9F00B5DEE4 /* ANStatusTextView.m */; };
 		00C941561BE9F25600CFCE28 /* ANAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C941551BE9F25600CFCE28 /* ANAccountTool.m */; };
 		00C941591BEB444300CFCE28 /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C941581BEB444300CFCE28 /* UIWindow+Extension.m */; };
 		00C9415B1BEB5CE200CFCE28 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C9415A1BEB5CE200CFCE28 /* Foundation+Log.m */; };
@@ -194,6 +196,12 @@
 		005FDE3E1BE1CA0000C3B611 /* ANDropdownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANDropdownMenu.m; sourceTree = "<group>"; };
 		005FDE431BE1FA2400C3B611 /* ANTitleMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTitleMenuViewController.h; sourceTree = "<group>"; };
 		005FDE441BE1FA2400C3B611 /* ANTitleMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTitleMenuViewController.m; sourceTree = "<group>"; };
+		006043C61C0BE27600316536 /* 大安微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "大安微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		006043C71C0BE27600316536 /* 大安微博Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "大安微博Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		006043C81C0BE27600316536 /* WritToFile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WritToFile.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		006043C91C0BE27600316536 /* WritToFileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WritToFileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		006043CA1C0C101E00316536 /* ANSpecial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANSpecial.h; sourceTree = "<group>"; };
+		006043CB1C0C101E00316536 /* ANSpecial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANSpecial.m; sourceTree = "<group>"; };
 		006E81561BFEC93B00905B93 /* ANEmotions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANEmotions.h; path = Model/ANEmotions.h; sourceTree = "<group>"; };
 		006E81571BFEC93B00905B93 /* ANEmotions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANEmotions.m; path = Model/ANEmotions.m; sourceTree = "<group>"; };
 		006E81591BFEC9A100905B93 /* EmotionIcons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EmotionIcons; sourceTree = "<group>"; };
@@ -260,6 +268,8 @@
 		00B9E8401C015E9400AC454F /* ANEmotionAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANEmotionAttachment.m; path = Model/ANEmotionAttachment.m; sourceTree = "<group>"; };
 		00B9E8421C01B60000AC454F /* ANEmotionTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANEmotionTool.h; path = Tool/ANEmotionTool.h; sourceTree = "<group>"; };
 		00B9E8431C01B60000AC454F /* ANEmotionTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANEmotionTool.m; path = Tool/ANEmotionTool.m; sourceTree = "<group>"; };
+		00C74F051C0B3F9F00B5DEE4 /* ANStatusTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStatusTextView.h; sourceTree = "<group>"; };
+		00C74F061C0B3F9F00B5DEE4 /* ANStatusTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStatusTextView.m; sourceTree = "<group>"; };
 		00C941541BE9F25600CFCE28 /* ANAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANAccountTool.h; sourceTree = "<group>"; };
 		00C941551BE9F25600CFCE28 /* ANAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANAccountTool.m; sourceTree = "<group>"; };
 		00C941571BEB444300CFCE28 /* UIWindow+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extension.h"; sourceTree = "<group>"; };
@@ -300,8 +310,6 @@
 		00C9417E1BECA17800CFCE28 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		00C9417F1BECA17800CFCE28 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		00C941801BECA17800CFCE28 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
-		00C941951BECB99B00CFCE28 /* WritToFile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = WritToFile.app; path = "/Users/a/Documents/2015Study/1115发微博/大安微博24  图文混排/build/Debug-iphoneos/WritToFile.app"; sourceTree = "<absolute>"; };
-		00C941B01BECB99C00CFCE28 /* WritToFileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = WritToFileTests.xctest; path = "/Users/a/Documents/2015Study/1115发微博/大安微博24  图文混排/build/Debug-iphoneos/WritToFileTests.xctest"; sourceTree = "<absolute>"; };
 		00C941BE1BECCC8E00CFCE28 /* ANUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANUser.h; sourceTree = "<group>"; };
 		00C941BF1BECCC8E00CFCE28 /* ANUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANUser.m; sourceTree = "<group>"; };
 		00C941C11BECCCA700CFCE28 /* ANStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStatus.h; sourceTree = "<group>"; };
@@ -326,12 +334,10 @@
 		00D1575A1BE9DDD0001239EE /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		00D1575B1BE9DDD0001239EE /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		00D1575C1BE9DDD0001239EE /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		00D689B01BDD2E8000020E02 /* 大安微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "大安微博.app"; path = "/Users/a/Documents/2015Study/1115发微博/大安微博24  图文混排/build/Debug-iphoneos/大安微博.app"; sourceTree = "<absolute>"; };
 		00D689B41BDD2E8000020E02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00D689BB1BDD2E8000020E02 /* ____.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "____.xcdatamodel"; sourceTree = "<group>"; };
 		00D689C31BDD2E8000020E02 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		00D689C61BDD2E8000020E02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		00D689CC1BDD2E8100020E02 /* 大安微博Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "大安微博Tests.xctest"; path = "/Users/a/Documents/2015Study/1115发微博/大安微博24  图文混排/build/Debug-iphoneos/大安微博Tests.xctest"; sourceTree = "<absolute>"; };
 		00D689DC1BDD2EA700020E02 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		00D68A1D1BDF324500020E02 /* ANDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANDiscoverViewController.h; sourceTree = "<group>"; };
 		00D68A1E1BDF324500020E02 /* ANDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANDiscoverViewController.m; sourceTree = "<group>"; };
@@ -675,6 +681,10 @@
 			children = (
 				001AC6A51C0AD64C00E53B88 /* libicucore.dylib */,
 				00D689B21BDD2E8000020E02 /* 大安微博 */,
+				006043C61C0BE27600316536 /* 大安微博.app */,
+				006043C71C0BE27600316536 /* 大安微博Tests.xctest */,
+				006043C81C0BE27600316536 /* WritToFile.app */,
+				006043C91C0BE27600316536 /* WritToFileTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -783,6 +793,8 @@
 				00CFF2BF1BF30B2D001F57B9 /* ANPhoto.m */,
 				001AC6A71C0AF43100E53B88 /* ANPart.h */,
 				001AC6A81C0AF43100E53B88 /* ANPart.m */,
+				006043CA1C0C101E00316536 /* ANSpecial.h */,
+				006043CB1C0C101E00316536 /* ANSpecial.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -805,6 +817,8 @@
 				00F994FD1BF73077007AEC26 /* ANStatusPhotosView.m */,
 				00F994FF1BF82947007AEC26 /* ANStatusPhotoView.h */,
 				00F995001BF82947007AEC26 /* ANStatusPhotoView.m */,
+				00C74F051C0B3F9F00B5DEE4 /* ANStatusTextView.h */,
+				00C74F061C0B3F9F00B5DEE4 /* ANStatusTextView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1033,7 +1047,7 @@
 			);
 			name = WritToFile;
 			productName = WritToFile;
-			productReference = 00C941951BECB99B00CFCE28 /* WritToFile.app */;
+			productReference = 006043C81C0BE27600316536 /* WritToFile.app */;
 			productType = "com.apple.product-type.application";
 		};
 		00C941AF1BECB99C00CFCE28 /* WritToFileTests */ = {
@@ -1051,7 +1065,7 @@
 			);
 			name = WritToFileTests;
 			productName = WritToFileTests;
-			productReference = 00C941B01BECB99C00CFCE28 /* WritToFileTests.xctest */;
+			productReference = 006043C91C0BE27600316536 /* WritToFileTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		00D689AF1BDD2E8000020E02 /* 大安微博 */ = {
@@ -1068,7 +1082,7 @@
 			);
 			name = "大安微博";
 			productName = "大安微博";
-			productReference = 00D689B01BDD2E8000020E02 /* 大安微博.app */;
+			productReference = 006043C61C0BE27600316536 /* 大安微博.app */;
 			productType = "com.apple.product-type.application";
 		};
 		00D689CB1BDD2E8100020E02 /* 大安微博Tests */ = {
@@ -1086,7 +1100,7 @@
 			);
 			name = "大安微博Tests";
 			productName = "大安微博Tests";
-			productReference = 00D689CC1BDD2E8100020E02 /* 大安微博Tests.xctest */;
+			productReference = 006043C71C0BE27600316536 /* 大安微博Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -1200,6 +1214,7 @@
 				00B9E83E1C00572000AC454F /* UITextView+Extension.m in Sources */,
 				00B9BADD1BFC68FC00CB6A67 /* ANEmotionListView.m in Sources */,
 				00D157561BE9A81B001239EE /* ANAccount.m in Sources */,
+				006043CC1C0C101E00316536 /* ANSpecial.m in Sources */,
 				0095B8201C03363A004ABC12 /* UIScrollView+MJExtension.m in Sources */,
 				0043D1161BED951D00E6DEAC /* MJPropertyType.m in Sources */,
 				0043D1171BED951D00E6DEAC /* NSObject+MJClass.m in Sources */,
@@ -1262,6 +1277,7 @@
 				00D1575D1BE9DDD0001239EE /* MBProgressHUD+MJ.m in Sources */,
 				00D68A661BDF324600020E02 /* ANProfileViewController.m in Sources */,
 				00CFF2B71BF1FCF6001F57B9 /* ANStatusCell.m in Sources */,
+				00C74F071C0B3F9F00B5DEE4 /* ANStatusTextView.m in Sources */,
 				00C9418C1BECA17800CFCE28 /* UIImage+MultiFormat.m in Sources */,
 				00C941851BECA17800CFCE28 /* SDWebImageDecoder.m in Sources */,
 				0095B8211C03363A004ABC12 /* UIScrollView+MJRefresh.m in Sources */,
